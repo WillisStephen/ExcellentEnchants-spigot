@@ -381,11 +381,18 @@ public enum EnchantCatalog implements EnchantCatalogEntry {
         .build(), () -> EnchantDistribution.regular(TradeType.SAVANNA_SPECIAL), TunnelEnchant::new
     ),
     VEINMINER(() -> EnchantDefinition.builder("Veinminer", 3)
-        .description("Mines up to " + GENERIC_AMOUNT + " blocks of the ore vein at once.")
-        .weight(RARE)
-        .items(ItemSetDefaults.PICKAXE)
-        .exclusives(BLAST_MINING.getKey(), TUNNEL.getKey())
-        .build(), () -> EnchantDistribution.regular(TradeType.PLAINS_SPECIAL), VeinminerEnchant::new
+            .description("Mines out a vein of ores.")
+            .weight(RARE)
+            .items(ItemSetDefaults.PICKAXE)
+            .exclusives(BLAST_MINING.getKey(), TUNNEL.getKey())
+            .build(), () -> EnchantDistribution.regular(TradeType.PLAINS_SPECIAL), VeinminerEnchant::new
+    ),
+    CLUSTERMINER(() -> EnchantDefinition.builder("ClusterMiner", 3)
+            .description("Mines up to " + GENERIC_AMOUNT + " blocks of the ore vein at once.")
+            .weight(RARE)
+            .items(ItemSetDefaults.PICKAXE)
+            .exclusives(BLAST_MINING.getKey(), TUNNEL.getKey())
+            .build(), () -> EnchantDistribution.regular(TradeType.PLAINS_SPECIAL), ClusterMinerEnchant::new
     ),
     CURSE_OF_BREAKING(() -> EnchantDefinition.builder("Curse of Breaking", 3)
         .description(TRIGGER_CHANCE + "% chance to consume extra " + GENERIC_AMOUNT + " durability points.")
